@@ -82,9 +82,9 @@ O principal objetivo deste projeto é coletar e apresentar o máximo de informa�
 O dashboard apresenta visualizações de dados como:
 
 - Jogos recentes, com placar e detalhes de cada partida.
-![alt text](image.png)
+![alt text](img/image.png)
 - Informações detalhadas de times e jogadores.
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 - Estatísticas de desempenho em várias categorias.
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 ---
