@@ -1,2 +1,3 @@
 .env
-
+__pycache__
+alembic/versions/__pycache__/07412c210025_create_initial_tables.cpython-312.pyc
