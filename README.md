@@ -2,6 +2,9 @@
 
 Este projeto visa coletar e exibir informações detalhadas sobre partidas de futebol em um dashboard interativo. Utilizando a [API de Futebol](https://apifootball.com/), o sistema coleta dados extensivos de competições, times, jogadores e partidas, organizando e apresentando as informações de forma visual e intuitiva.
 
+# Link do dashboard
+https://futebol-api.streamlit.app/
+
 ## Funcionalidades
 
 - **Partidas Recentes**: Exibe detalhes de partidas recentes, incluindo times, placar, estádio, árbitro e formações.
