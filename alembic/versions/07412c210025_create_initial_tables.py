@@ -76,6 +76,9 @@ def upgrade() -> None:
         player_birthdate VARCHAR(10),
         player_is_captain VARCHAR(10) DEFAULT 'FALSE',
         player_rating VARCHAR(10),
+        player_image VARCHAR(255),
+        player_goals_conceded VARCHAR(10),
+        player_fouls_committed VARCHAR(10),
         UNIQUE (player_id)  
 );
         
