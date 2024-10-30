@@ -12,6 +12,8 @@ load_dotenv()
 
 st.set_page_config(page_title="Football Dashboard", layout="wide", initial_sidebar_state="expanded")
 
+st.markdown("<div id='top'></div>", unsafe_allow_html=True);
+
 st.markdown(
     """
     <style>
@@ -258,3 +260,29 @@ elif section == "Estatísticas de Jogadores":
             """,
             unsafe_allow_html=True
         )
+
+st.markdown(
+    """
+    <style>
+    .float-button {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 22px;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+    .float-button:hover {
+        background-color: #2980b9;
+    }
+    </style>
+    <a href="#top" class="float-button">⬆️</a>
+    """,
+    unsafe_allow_html=True
+)
