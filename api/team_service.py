@@ -31,6 +31,7 @@ class TeamService(FootballDataService):
             for player in team.get("players", []):
                 players_data.append({
                     "player_id": player["player_id"],
+                    "player_image" : player.get("player_image"),
                     "team_key": team["team_key"],
                     "player_name": player["player_name"],
                     "player_complete_name": player.get("player_complete_name"),
@@ -48,7 +49,10 @@ class TeamService(FootballDataService):
                     "player_assists": player.get("player_assists"),
                     "player_birthdate": player.get("player_birthdate"),
                     "player_is_captain": player.get("player_is_captain") == "Yes",
-                    "player_rating": player.get("player_rating")
+                    "player_rating": player.get("player_rating"),
+                    "player_passes" : player.get("player_passes"),
+                    "player_goals_conceded" : player.get("player_goals_conceded"),
+                    "player_fouls_committed" : player.get("player_fouls_committed")
                 })
 
         return teams_data, venues_data, players_data

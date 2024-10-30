@@ -126,7 +126,6 @@ elif section == "Países":
             f"""
             <div class="card">
                 <h4>{selected_country_data.iloc[0]['country_name']}</h4>
-                <p><strong>ID do País:</strong> {selected_country_data.iloc[0]['country_id']}</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -228,7 +227,7 @@ elif section == "Estatísticas de Jogadores":
         SELECT player_id, player_name, player_complete_name, player_number, player_country, player_type, 
                player_age, player_match_played, player_goals, player_yellow_cards, player_red_cards, 
                player_injured, player_substitute_out, player_substitutes_on_bench, player_assists, 
-               player_is_captain, player_rating 
+               player_is_captain, player_rating, player_image, player_goals_conceded, player_fouls_committed
         FROM Players;
     """
     players_data = query_db(players_query)
@@ -237,19 +236,24 @@ elif section == "Estatísticas de Jogadores":
         player_data = players_data[players_data['player_name'] == selected_player].iloc[0]
         st.markdown(
             f"""
-            <div class="card">
-                <h4>{player_data['player_complete_name']} (#{player_data['player_number']})</h4>
-                <p><strong>País:</strong> {player_data['player_country']}</p>
-                <p><strong>Posição:</strong> {player_data['player_type']}</p>
-                <p><strong>Idade:</strong> {player_data['player_age']}</p>
-                <p class="stat">Partidas Jogadas: {player_data['player_match_played']}</p>
-                <p class="stat">Gols: {player_data['player_goals']}</p>
-                <p class="stat">Assistências: {player_data['player_assists']}</p>
-                <p class="stat">Cartões Amarelos: {player_data['player_yellow_cards']}</p>
-                <p class="stat">Cartões Vermelhos: {player_data['player_red_cards']}</p>
-                <p><strong>Lesionado:</strong> {player_data['player_injured']}</p>
-                <p><strong>Capitão:</strong> {player_data['player_is_captain']}</p>
-                <p><strong>Nota do Jogador:</strong> {player_data['player_rating']}</p>
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="flex: 2;">
+                    <h4>{player_data['player_complete_name']} (#{player_data['player_number']})</h4>
+                    <p><strong>Posição:</strong> {player_data['player_type']}</p>
+                    <p><strong>Idade:</strong> {player_data['player_age']}</p>
+                    <p class="stat">Partidas Jogadas: {player_data['player_match_played']}</p>
+                    <p class="stat">Gols: {player_data['player_goals']}</p>
+                    <p class="stat">Assistências: {player_data['player_assists']}</p>
+                    <p class="stat">Faltas realizadas: {player_data['player_fouls_committed']}</p>
+                    <p class="stat">Cartões Amarelos: {player_data['player_yellow_cards']}</p>
+                    <p class="stat">Cartões Vermelhos: {player_data['player_red_cards']}</p>
+                    <p><strong>Lesionado:</strong> {player_data['player_injured']}</p>
+                    <p><strong>Capitão:</strong> {player_data['player_is_captain']}</p>
+                    <p><strong>Nota do Jogador:</strong> {player_data['player_rating']}</p>
+                </div>
+                <div style="flex: 1; text-align: right;">
+                    <img src="{player_data['player_image']}" width="120" height="120" style="border-radius: 50%;" alt="Imagem do jogador">
+                </div>
             </div>
             """,
             unsafe_allow_html=True

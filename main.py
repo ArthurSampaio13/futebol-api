@@ -20,8 +20,9 @@ def main():
             player_id, team_key, player_name, player_complete_name, player_number, player_country,
             player_type, player_age, player_match_played, player_goals, player_yellow_cards,
             player_red_cards, player_injured, player_substitute_out, player_substitutes_on_bench,
-            player_assists, player_birthdate, player_is_captain, player_rating
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            player_assists, player_birthdate, player_is_captain, player_rating, player_image,
+            player_goals_conceded, player_fouls_committed
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         ON CONFLICT (player_id) DO NOTHING
     """
     match_query = """
@@ -84,7 +85,7 @@ def main():
     teams_data, venues_data, players_data = team_service.get_data(152)
     db_service.insert_data(teams_query, [(t["team_key"], t["team_name"], t["team_country"], t["team_founded"], t["team_badge"]) for t in teams_data])
     db_service.insert_data(venues_query, [(v["team_key"], v["venue_name"], v["venue_address"], v["venue_city"], v["venue_capacity"], v["venue_surface"]) for v in venues_data])
-    db_service.insert_data(players_query, [(p["player_id"], p["team_key"], p["player_name"], p["player_complete_name"], p["player_number"], p["player_country"], p["player_type"], p["player_age"], p["player_match_played"], p["player_goals"], p["player_yellow_cards"], p["player_red_cards"], p["player_injured"], p["player_substitute_out"], p["player_substitutes_on_bench"], p["player_assists"], p["player_birthdate"], p["player_is_captain"], p["player_rating"]) for p in players_data])
+    db_service.insert_data(players_query, [(p["player_id"], p["team_key"], p["player_name"], p["player_complete_name"], p["player_number"], p["player_country"], p["player_type"], p["player_age"], p["player_match_played"], p["player_goals"], p["player_yellow_cards"], p["player_red_cards"], p["player_injured"], p["player_substitute_out"], p["player_substitutes_on_bench"], p["player_assists"], p["player_birthdate"], p["player_is_captain"], p["player_rating"], p["player_image"], p["player_goals_conceded"], p["player_fouls_committed"]) for p in players_data])
 
     matches_data, goalscorers_data, cards_data, substitutions_data, lineups_data, statistics_data, first_half_statistics_data = match_service.get_data("2021-06-22", "2022-11-06", 152)
 
