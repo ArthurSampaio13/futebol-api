@@ -88,3 +88,6 @@ O dashboard apresenta visualizações de dados como:
 - Estatísticas de desempenho em várias categorias.
 ![alt text](img/image-1.png)
 ---
+
+## Diagrama relacional
+- https://dbdiagram.io/d/Futebol-67222f702c337ee119e41aef
