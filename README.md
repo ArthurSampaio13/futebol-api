@@ -94,3 +94,25 @@ O dashboard apresenta visualizações de dados como:
 
 ## Diagrama relacional
 - https://dbdiagram.io/d/Futebol-67222f702c337ee119e41aef
+
+## Exemplos de querys
+``` sql
+SELECT match_id, match_date, match_hometeam_name, match_hometeam_score, match_awayteam_name, match_awayteam_score, 
+               team_home_badge, team_away_badge, match_stadium, match_referee, match_hometeam_halftime_score,
+               match_awayteam_halftime_score, match_hometeam_extra_score, match_awayteam_extra_score, 
+               match_hometeam_penalty_score, match_awayteam_penalty_score, match_hometeam_system, match_awayteam_system
+        FROM Matches
+        ORDER BY match_date DESC
+```
+
+``` sql
+SELECT time, home_fault, away_fault, card FROM Cards WHERE match_id = %s
+```
+
+``` sql
+SELECT player_id, player_name, player_complete_name, player_number, player_country, player_type, 
+               player_age, player_match_played, player_goals, player_yellow_cards, player_red_cards, 
+               player_injured, player_substitute_out, player_substitutes_on_bench, player_assists, 
+               player_is_captain, player_rating, player_image, player_goals_conceded, player_fouls_committed
+        FROM Players;
+```
