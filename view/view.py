@@ -60,7 +60,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-DB_URL = os.getenv("DB_URL")
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+
+DB_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 def get_connection():
     return psycopg2.connect(DB_URL)
